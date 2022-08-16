@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+:root {
+    --main-color: #00fe87;
+    --main-back-color: #fbfaf9;
+    --second-back-color: #1a1a1a;
+    --main-boxshadow: 0px 0px 10px -5px gray;
+}
+/*Sart Global rules  */
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+html {
+    scroll-behavior: smooth;
+}
+ul {
+    list-style: none;
+}
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* Small  */
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* Medium */
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large  */
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End global rules  */
+/* start header  */
+header {
+    height: 80px;
+    background-color: var(--main-back-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+} 
+header .container img {
+    height: 100%;
+}
+header nav {
+    width: 50%
+}
+@media (max-width: 768px) {
+    header nav {
+        width: 70%;
+    }
+}
+header .container nav ul {
+    display: flex;
+    height: 100%;
+}
+header .container nav ul li {
+    width: calc(100% / 3);
+}
+header .container nav ul li a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    transition: .6s;
+    color: var(--second-back-color);
+    font-size: 19px;
+    position: relative;
+    overflow: hidden;
+}
+header .container nav ul li a:hover {
+    color: var(--main-back-color);
+}
+header .container nav ul li a::before {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    background-color: var(--second-back-color);
+    transition: .5s;
+    z-index: -1;
+}
+header .container nav ul li a:hover::before {
+    width: 50%;
+    box-shadow: 1px 0px 50px 73px #1a1a1a,
+                1px 0px 100px 93px var(--main-color);
+    left: 0;
+}
+/* end header  */
+/* start landing  */
+.landing {
+    position: relative;
+    top: 80px;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--second-back-color);
+}
+.landing .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.landing .title h1:first-of-type {
+    color: var(--main-back-color);
+    font-size: 4vw;
+    margin: 0;
+}
+.landing .title h1 a {
+    color: var(--main-color);
+    font-size: 5vw;
+}
+.landing .title h1:last-of-type {
+    position: relative;
+    font-size: 4vw;
+    color: var(--second-back-color);
+    -webkit-text-stroke: 0.1vw var(--main-back-color);
+}
+@media (max-width: 992px) {
+    .landing .title h1:first-of-type,
+    .landing .title h1:last-of-type {
+        font-size: 6vw;
+    }
+    .landing .title h1 a {
+        font-size: 7vw;
+    }
+}
+.landing .title h1:last-of-type::before {
+    content: attr(data-text);
+    white-space: pre;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    color: var(--main-color);
+    border-right: 2px solid var(--main-color);
+    overflow: hidden;
+    animation: animate 5s linear infinite;
+}
+@keyframes animate {
+    0%, 10%, 100% {
+        width: 0;
+    }
+    70%, 90% {
+        width: 100%;
+    }
+}
+/* end landing */
