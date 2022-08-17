@@ -275,6 +275,11 @@ footer .container {
     text-align: center;
     font-size: 35px;
 }
+@media (max-width: 768px) {
+    footer .container {
+        font-size: 20px;
+    }
+}
 footer .container .links {
     display: flex;
     justify-content: space-around;
@@ -284,12 +289,18 @@ footer .container .links {
     footer .container .links {
         flex-direction: column;
         padding: 60px 50px 30px;
+        text-align: start;
     }
 }
 footer .container .links .contact {
     padding: 20px;
     font-weight: 500;
     transition: .5s;
+}
+@media (max-width: 1200px) {
+    footer .container .links .contact {
+        border-left: 3px solid var(--main-color);
+    }
 }
 footer .container .links .contact:hover {
     background-color: var(--main-color);
