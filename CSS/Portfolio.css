@@ -4,7 +4,8 @@
     --main-color: #00fe87;
     --main-back-color: #fbfaf9;
     --second-back-color: #1a1a1a;
-    --main-boxshadow: 0px 0px 10px -5px gray;
+    --main-boxshadow: 0px 0px 15px -5px #1a1a1a;
+    --main-gap: 40px;
 }
 /*Sart Global rules  */
 *,
@@ -186,3 +187,85 @@ header .container nav ul li a:hover::before {
     }
 }
 /* end landing */
+/* start projects  */
+.projects {
+    padding-top: 100px;
+    background-color: var(--main-back-color);
+    text-align: center;
+}
+.projects h1 {
+    padding: 20px;
+    color: var(--second-back-color);
+    font-size: 40px;
+}
+.projects .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--main-gap);
+}
+.projects .container .box {
+    box-shadow: var(--main-boxshadow);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    transition: .4s;
+}
+.projects .container .box::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 30%;
+    left: 50%;
+    background-color: #1a1a1a45;
+    transition: .4s;
+    z-index: 1;
+}
+.projects .container .box:hover::before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50%;
+}
+.projects .container .box:hover {
+    transform: translateY(-10px);
+}
+.projects .container .box img {
+    width: 100%;
+    position: relative;
+}
+.projects .container .box .text {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    bottom: -500px;
+    transition: .3s;
+    background-color: var(--main-back-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.projects .container .box .text p {
+    padding-bottom: 5%;
+}
+.projects .container .box .text a {
+    padding: 10px 40px;
+    color: var(--main-back-color);
+    font-size: 17px;
+    font-weight: 500;
+    background-color: var(--main-color);
+    border-radius: 5px;
+}
+.projects .container .box .text h3 {
+    padding: 10px 40px;
+    font-size: 20px;
+    color: var(--second-back-color);
+}
+.projects .container .box .text span {
+    color: var(--main-color);
+}
+.projects .container .box:hover .text {
+    bottom: 0;
+}
+/* end projects  */
